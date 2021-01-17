@@ -1,4 +1,4 @@
-package com.rahul.hackerrank;
+package hackerrank;
 
 import javax.swing.*;
 import java.util.*;
