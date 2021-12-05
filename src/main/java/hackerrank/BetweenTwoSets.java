@@ -87,6 +87,6 @@ public class BetweenTwoSets {
     }
 
     public static void main(String... args) {
-        System.out.println("totalX: " + getTotalX(List.of(2,6), List.of(24,36)));
+        //System.out.println("totalX: " + getTotalX(List.of(2,6), List.of(24,36)));
     }
 }

@@ -1,8 +1,7 @@
 package book.masteringlambda;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -29,11 +28,15 @@ public class Chapter3 {
     DoubleStream doubleStream = IntStream.rangeClosed(1,10).asDoubleStream();
 
     // Converting into boxed type. pg 49
-    Stream<Integer> is = IntStream.rangeClosed(1, 10).boxed();
+    Stream<Integer> is = IntStream.rangeClosed(1, 1000).boxed();
+    ArrayList list = is.collect(Collectors.toCollection(ArrayList::new));
 
     // unwrapping a boxed type. pg 49
     Stream<Integer> integerStream = Stream.of(1, 2);
     IntStream intStream = integerStream.mapToInt(Integer::intValue);
+
+    static int n=1000;
+    static List<Integer> nums2 = IntStream.rangeClosed(1, n).boxed().collect(Collectors.toList());
 
 
 
@@ -42,6 +45,21 @@ public class Chapter3 {
         Chapter3 chapter3 = new Chapter3();
 
         System.out.println(chapter3.num.getAsInt());
+
+
+        nums2.forEach( i -> {
+            if (i % 3 == 0) {
+                if (i % 5 == 0) {
+                    System.out.println("fizzbuzz");
+                } else {
+                    System.out.println("fizz");
+                }
+            } else if (i % 5 == 0) {
+                System.out.println("buzz");
+            } else {
+                System.out.println(i);
+            }
+        });
     }
 
 }
